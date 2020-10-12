@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 8900;
+const port = process.env.PORT || 8900;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
 const mongoUrl = "mongodb+srv://Nithya:mongo@123@cluster0.o3fi9.mongodb.net/edurekainternship?retryWrites=true&w=majority";
