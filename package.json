@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node api.js",
+    "dev": "nodemon api.js"
   },
+  "keywords": [
+    "node",
+    "express",
+    "mongo"
+  ],
   "author": "Nithya Kalyani",
   "license": "ISC",
   "dependencies": {
