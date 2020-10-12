@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 8900;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
-const mongoUrl = "mongodb+srv://Nithya:K@lyani04@cluster0.o3fi9.mongodb.net/edurekainternship?retryWrites=true&w=majority";
+const mongoUrl = "mongodb+srv://admin:mongo@123@cluster0-f8vmc.mongodb.net/edurekinternship?retryWrites=true&w=majority";
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let db;
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/',(req,res) => {
-    res.send("<div><a href='http://localhost:9000/location'>Location</a><br/><a href='http://localhost:9000/mealtype'>MealType</a><br/><a href='http://localhost:9000/cuisine'>Cuisine</a><br/><a href='http://localhost:9000/restaurant'>Restaurant</a></div>")
+    res.send("<div><a href='http://localhost:8900/location'>Location</a><br/><a href='http://localhost:8900/mealtype'>MealType</a><br/><a href='http://localhost:8900/cuisine'>Cuisine</a><br/><a href='http://localhost:8900/restaurant'>Restaurant</a></div>")
 })
 
 //City List
@@ -115,7 +115,7 @@ app.post('/placeorder',(req,res) => {
 
 MongoClient.connect(mongoUrl,(err,client) => {
     if(err) console.log(err);
-    db = client.db('edurekainternship');
+    db = client.db('edurekinternship');
     app.listen(port,(err) => {
         if(err) throw err;
         console.log(`Server is running on port ${port}`)
