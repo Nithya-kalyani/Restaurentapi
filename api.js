@@ -52,7 +52,7 @@ app.get('/restaurant',(req,res) => {
     else if(req.query.mealtype){
         query={"type.mealtype":req.query.mealtype}
     }
-    db.collection('restaurent').find(query).toArray((err,result) =>{
+    db.collection('restaurant').find(query).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
     })
@@ -61,7 +61,7 @@ app.get('/restaurant',(req,res) => {
 app.get('/restaurantDetails/:id',(req,res) => {
     console.log(req.params.id)
     var query = {_id:req.params.id}
-    db.collection('restaurent').find(query).toArray((err,result) =>{
+    db.collection('restaurant').find(query).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
     })
@@ -87,7 +87,7 @@ app.get('/restaurantlist/:mealtype', (req,res) => {
     }else if(req.query.lcost && req.query.hcost){
         query={"type.mealtype":req.params.mealtype,"cost":{$lt:parseInt(req.query.lcost),$gt:parseInt(req.query.hcost)} }
     }
-    db.collection('restaurent').find(query).sort(sort).toArray((err,result) =>{
+    db.collection('restaurant').find(query).sort(sort).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
     })
