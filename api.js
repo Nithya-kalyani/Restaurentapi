@@ -116,8 +116,8 @@ app.get('/orders',(req,res) => {
 
 
 //Delete Orders
-app.delete('/deleteorders',(req,res) => {
-    db.collection('orders').remove({_id:req.body.id},(err,result) => {
+app.delete('/deleteorders/:order_id',(req,res) => {
+    db.collection('orders').remove({order_id:req.body.order_id},(err,result) => {
         if(err) throw err;
         res.send('data deleted')
     })
@@ -151,6 +151,14 @@ app.get('/cart',(req,res) => {
     db.collection('cart').find({}).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
+    })
+})
+
+//Delete cart
+app.delete('/deletecart',(req,res) => {
+    db.collection('cart').remove({_id:req.body.id},(err,result) => {
+        if(err) throw err;
+        res.send('data deleted')
     })
 })
 
