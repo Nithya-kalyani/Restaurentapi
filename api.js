@@ -137,6 +137,23 @@ app.put('/updateorders',(req,res) => {
         })
 })
 
+//PlaceCart
+app.post('/placecart',(req,res) => {
+    console.log(req.body);
+    db.collection('cart').insert(req.body,(err,result) => {
+        if(err) throw err;
+        res.send('posted')
+    })
+})
+
+//cart
+app.get('/cart',(req,res) => {
+    db.collection('cart').find({}).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 MongoClient.connect(mongourl,(err,connection)=>{
     if(err) throw err
     db = connection.db('edurekainternship');
