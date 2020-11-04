@@ -116,7 +116,7 @@ app.get('/orders',(req,res) => {
 
 
 //Delete Orders
-app.delete('/deleteorders/:order_id',(req,res) => {
+app.delete('/deleteorders',(req,res) => {
     db.collection('orders').remove({order_id:req.body.order_id},(err,result) => {
         if(err) throw err;
         res.send('data deleted')
