@@ -18,7 +18,7 @@ app.get('/health',(req,res) => {
 });
 
 app.get('/',(req,res) => {
-    res.send(`<a href="http://localhost:2000/location" target="_blank">City</a> <br/> <a href="http://localhost:2000/mealtype" target="_blank">MealType</a> <br/> <a href="http://localhost:2000/cuisine" target="_blank">Cuisine</a> <br/> <a href="http://localhost:2000/restaurants" target="_blank">Restaurants</a> <br/> <a href="http://localhost:2000/orders" target="_blank">Orders</a>`)
+    res.send(`<a href="https://developer-restaurant.herokuapp.com/location" target="_blank">City</a> <br/> <a href="https://developer-restaurant.herokuapp.com/mealtype" target="_blank">MealType</a> <br/> <a href="https://developer-restaurant.herokuapp.com/cuisine" target="_blank">Cuisine</a> <br/> <a href="https://developer-restaurant.herokuapp.com/restaurants" target="_blank">Restaurants</a> <br/> <a href="https://developer-restaurant.herokuapp.com/orders" target="_blank">Orders</a>`)
 })
 
 //List of city
