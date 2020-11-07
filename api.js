@@ -76,11 +76,11 @@ app.get('/restaurantdetails/:id',(req,res) => {
 
 app.get('restaurantdata/:id',(req,res)=>{
     const productId = req.params.id;
-    const product = products.find(x => x._id === productId);
-    if(product){
-        db.collection('restaurant').find(product).toArray(() => {
-            res.send(product)})
-    }
+    if(req.params.id){
+        db.collection('restaurant').find(x => x._id === productId).toArray((err,result) => {
+            res.send(result)
+    })
+}
     else{
         res.status(404).send({msg:"product not found"})
     }
