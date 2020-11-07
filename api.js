@@ -38,9 +38,17 @@ app.get('/mealtype',(req,res) => {
 })
 
 //dishtype
-app.get('/dish',(req,res) => {
+app.get('/dishes',(req,res) => {
     db.collection('dish').find({}).toArray((err,result) => {
         if(err) throw err;
+        res.send(result)
+    })
+})
+
+//dishdata
+app.get('/dish/:id',(req,res) => {
+    var query = {_id:req.params.id}
+    db.collection('dish').find(query).toArray((err,result) => {
         res.send(result)
     })
 })
