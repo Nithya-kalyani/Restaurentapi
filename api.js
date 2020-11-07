@@ -74,14 +74,6 @@ app.get('/restaurantdetails/:id',(req,res) => {
 })
 
 
-app.get('restaurantdata/:id',(req,res)=>{
-    var productId = req.params.id;
-        db.collection('restaurant').find(x => x._id === productId).toArray((err,result) => {
-            res.send(result)
-    })
-   
-})
-
 //RestaurentList
 app.get('/restaurantList/:mealtype',(req,res) => {
     var query = {};
