@@ -73,6 +73,18 @@ app.get('/restaurantdetails/:id',(req,res) => {
     })
 })
 
+
+app.get('restaurantdata/:id',(req,res)=>{
+    const productId = req.params.id;
+    const product = products.find(x => x._id === productId);
+    if(product){
+        res.send(product)
+    }
+    else{
+        res.status(404).send({msg:"product not found"})
+    }
+})
+
 //RestaurentList
 app.get('/restaurantList/:mealtype',(req,res) => {
     var query = {};
