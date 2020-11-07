@@ -37,6 +37,14 @@ app.get('/mealtype',(req,res) => {
     })
 })
 
+//dishtype
+app.get('/dish',(req,res) => {
+    db.collection('dish').find({}).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
 //cusine
 app.get('/cuisine',(req,res) => {
     db.collection('cuisine').find({}).toArray((err,result) => {
