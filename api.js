@@ -7,17 +7,21 @@ var mongo = require('mongodb');
 var MongoClient = mongo.MongoClient;
 var mongourl = "mongodb+srv://Nithya:mongo@123@cluster0.o3fi9.mongodb.net/edurekainternship?retryWrites=true&w=majority";
 var db;
+var http = require('http');
+var path = require('path');
 
 app.use(cors());
 
 app.use(bodParser.urlencoded({extended:true}));
 app.use(bodParser.json())
 
-app.get('/health',(req,res) => {
-    res.send("Api is working")
-});
+app.use(express.static(path.join(__dirname,'build')));
 
 app.get('/',(req,res) => {
+    res.sendFile(path.join(__dirname,'build/index.html'))
+});
+
+app.get('/health',(req,res) => {
     res.send(`<a href="https://developer-restaurant.herokuapp.com/location" target="_blank">City</a> <br/> <a href="https://developer-restaurant.herokuapp.com/mealtype" target="_blank">MealType</a> <br/> <a href="https://developer-restaurant.herokuapp.com/cuisine" target="_blank">Cuisine</a> <br/> <a href="https://developer-restaurant.herokuapp.com/restaurants" target="_blank">Restaurants</a> <br/> <a href="https://developer-restaurant.herokuapp.com/orders" target="_blank">Orders</a>`)
 })
 
